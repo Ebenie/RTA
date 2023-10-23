@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>www.abeni@.com</title>
+		<link rel="stylesheet" type="text/css" href="a.css">
+
+</head>
+<body>
+   <div class="a">
+			<div class="aa">
+				<h1>Real-Time System Architecture</h1>
+			</div>
+		     <div class="ab">
+			 <br><br><br><br>
+			
+				<h1 id="1" style="display: none;"></h1>
+				<h1 id="2"></h1>
+				<br><br>
+				
+				<button id="start">Start</button>
+			</div>
+		
+	
+		</div>
+    <script>
+        
+        var countdownTime = 5; 
+
+       
+        function updateCountdown() {
+            var countdownElement = document.getElementById("1");
+            countdownElement.textContent = "" + countdownTime + " seconds";
+        }
+
+        function startCountdown() {
+            updateCountdown();
+            var countdownElement = document.getElementById("1");
+            countdownElement.style.display = "block"; 
+            var countdownInterval = setInterval(function () {
+                countdownTime--;
+
+                if (countdownTime <= 0) {
+                    clearInterval(countdownInterval);
+                    if (countdownTime < 0) {
+					 document.getElementById("1").textContent = "";
+                        document.getElementById("2").textContent = "Time exceeded bound!";
+                    } else {
+                        document.getElementById("1").textContent = "";
+                        document.getElementById("2").textContent = "Hello Engineers!";
+                        document.getElementById("2").style.fontSize = "60px";
+                    }
+                } else {
+                    updateCountdown();
+                }
+            }, 1000);
+        }
+
+        document.getElementById("start").addEventListener("click", function () {
+            startCountdown();
+        });
+    </script>
+</body>
+</html>
